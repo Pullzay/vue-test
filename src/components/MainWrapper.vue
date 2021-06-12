@@ -24,15 +24,3 @@ export default {
   watch: {},
 };
 </script>
-
-<style>
-.main-wrapper {
-  max-width: 900px;
-  margin: 0 auto;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  text-align: center;
-}
-</style>
