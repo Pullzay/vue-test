@@ -1,8 +1,8 @@
 <template>
   <div class="catalog-item">
-    <h1>CatalogItem</h1>
-    <p>Item 1</p>
-    <p>Price: 400</p>
+    <img :src="require('../assets/images/' + product_data.image)" alt="img" />
+    <p>{{ product_data.name }}</p>
+    <p>{{ product_data.price }} Р</p>
     <button>Add to cart</button>
   </div>
 </template>
@@ -10,6 +10,14 @@
 <script>
 export default {
   name: "CatalogItem",
+  props: {
+    product_data: {
+      type: Object,
+      default() {
+        return {};
+      },
+    },
+  },
 };
 </script>
 

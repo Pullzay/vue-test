@@ -1,3 +1,5 @@
+@import "variables.scss";
+
 .main-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -5,5 +7,18 @@
   flex-direction: column;
   align-items: center;
   justify-content: center;
-  text-align: center;
+}
+.catalog {
+  width: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  &-item {
+    width: 25%;
+    padding: 10px;
+    margin-bottom: 25px;
+    box-sizing: border-box;
+  }
+}
+.cart {
+  width: 100%;
 }
