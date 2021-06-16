@@ -4,6 +4,7 @@
       v-for="product in products"
       :key="product.article"
       :product_data="product"
+      @sendDataToParent="showChildArticle"
     />
     <Cart />
   </div>
@@ -18,6 +19,11 @@ export default {
   components: {
     CatalogItem,
     Cart,
+  },
+  methods: {
+    showChildArticle(data) {
+      console.log(data);
+    },
   },
   data() {
     return {
