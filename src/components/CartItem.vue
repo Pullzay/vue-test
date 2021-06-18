@@ -8,8 +8,8 @@
       <p>{{ cart_item_data.name }}</p>
       <p>{{ cart_item_data.price }} Р</p>
       <p>{{ cart_item_data.article }} Р</p>
-      <p></p>
-      <button>Delete</button>
+      <p>{{ cart_item_data.quantity }}</p>
+      <button @click="deleteFromCart">Delete</button>
     </div>
   </div>
 </template>
@@ -24,6 +24,14 @@ export default {
         return [];
       },
     },
+  },
+  methods: {
+    deleteFromCart() {
+      this.$emit("deleteFromCart");
+    },
+  },
+  mounted() {
+    this.$set(this.cart_item_data, "quantity", 1);
   },
 };
 </script>
