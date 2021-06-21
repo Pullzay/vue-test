@@ -1,5 +1,8 @@
 @import "variables.scss";
 
+body {
+  margin: 0 auto;
+}
 .main-wrapper {
   max-width: 900px;
   margin: 0 auto;
@@ -12,11 +15,21 @@
   width: 100%;
   display: flex;
   flex-wrap: wrap;
+  position: relative;
+  padding: 20px;
+
   &-item {
     width: 25%;
     padding: 10px;
     margin-bottom: 25px;
     box-sizing: border-box;
+  }
+  &-cart {
+    position: absolute;
+    right: 0;
+    top: 0;
+    padding: 10px;
+    border: 1px solid #000;
   }
 }
 .cart {
