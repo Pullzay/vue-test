@@ -8,7 +8,10 @@
       <p>{{ cart_item_data.name }}</p>
       <p>{{ cart_item_data.price }} Р</p>
       <p>{{ cart_item_data.article }} Р</p>
-      <p>{{ cart_item_data.quantity }}</p>
+      <p>
+        <span @click="decrementItem">-</span> {{ cart_item_data.quantity }}
+        <span @click="incrementItem">+</span>
+      </p>
       <button @click="deleteFromCart">Delete</button>
     </div>
   </div>
@@ -28,6 +31,12 @@ export default {
   methods: {
     deleteFromCart() {
       this.$emit("deleteFromCart");
+    },
+    decrementItem() {
+      this.$emit("decrement");
+    },
+    incrementItem() {
+      this.$emit("increment");
     },
   },
   mounted() {
