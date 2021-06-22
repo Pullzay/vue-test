@@ -1,8 +1,12 @@
 <template>
   <div class="catalog">
-    <router-link :to="{ name: 'cart', params: { cart_data: CART } }">
+    <router-link
+      :to="{ name: 'cart', params: { cart_data: CART } }"
+      v-if="CART.length"
+    >
       <div class="catalog-cart">Cart {{ CART.length }}</div>
     </router-link>
+    <div v-else class="catalog-cart">Cart 0</div>
     <CatalogItem
       v-for="product in PRODUCTS"
       :key="product.article"

@@ -1,8 +1,8 @@
 <template>
   <div class="cart">
     <p v-if="!cart_data.length">Корзина пустая</p>
-    <div v-if="cart_data.length">
-      <h1>Cart</h1>
+    <div v-else class="catalog">
+      <h1 class="catalog-maintitle">Cart</h1>
       <CartItem
         v-for="(item, index) in cart_data"
         :key="item.atricle"
@@ -11,9 +11,7 @@
         @increment="increment(index)"
         @decrement="decrement(index)"
       />
-      <div class="cart-total">
-        <p>Total: {{ cartTotalCost }} Р</p>
-      </div>
+      <div class="cart-total">Total: {{ cartTotalCost }} Р</div>
     </div>
     <router-link :to="{ name: 'catalog' }">
       <div class="catalog-cart">Home</div>
