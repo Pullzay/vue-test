@@ -72,14 +72,13 @@ export default {
       this.ADD_TO_CART(data);
     },
     sortByCategories(category) {
-      let vm = this;
       this.sortedProducts = [...this.PRODUCTS];
       this.sortedProducts = this.sortedProducts.filter((item) => {
-        return item.price >= vm.minPrice && item.price <= vm.maxPrice;
+        return item.price >= this.minPrice && item.price <= this.maxPrice;
       });
       if (category) {
         this.sortedProducts = this.sortedProducts.filter((e) => {
-          vm.selected = category.name;
+          this.selected = category.name;
           return e.category === category.name;
         });
       }
@@ -96,7 +95,6 @@ export default {
   mounted() {
     this.GET_PRODUCTS_FROM_API().then((responce) => {
       if (responce.data) {
-        console.log("Готово");
         this.sortByCategories();
       }
     });
@@ -116,5 +114,3 @@ export default {
   },
 };
 </script>
-
-<style></style>
