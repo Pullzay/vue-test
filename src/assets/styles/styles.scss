@@ -149,3 +149,57 @@ input[type="range"]::-webkit-slider-thumb {
     align-items: center;
   }
 }
+.notification {
+  position: fixed;
+  top: 80px;
+  right: 30px;
+
+  &-content {
+    padding: 15px;
+    color: #fff;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 50px;
+    margin-bottom: 15px;
+    background-color: green;
+  }
+  &-text {
+    display: flex;
+    align-items: center;
+  }
+  .material-icons {
+    margin-left: 15px;
+  }
+  .messages {
+    display: flex;
+    flex-direction: column-reverse;
+  }
+  .transition-animate {
+    &-enter {
+      transform: translateX(120px);
+      opacity: 0;
+    }
+    &-enter-active {
+      transition: all 0.4s linear;
+    }
+    &-enter-to {
+      opacity: 1;
+    }
+    &-leave {
+      height: 50px;
+      opacity: 1;
+    }
+    &-leave-active {
+      transition: transform 0.4s linear, opacity 0.4s, height 0.4s 0.2s;
+    }
+    &-leave-to {
+      transform: translateX(120px);
+      opacity: 0;
+      height: 0;
+    }
+    &-move {
+      transition: transform 0.4s ease;
+    }
+  }
+}

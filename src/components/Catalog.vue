@@ -1,5 +1,6 @@
 <template>
   <div class="catalog">
+    <Notification :messages="messages" :timeout="3000" />
     <router-link
       :to="{ name: 'cart', params: { cart_data: CART } }"
       v-if="CART.length"
@@ -47,6 +48,7 @@
 
 <script>
 import CatalogItem from "./CatalogItem.vue";
+import Notification from "./notifications/Notification.vue";
 import Select from "./Select.vue";
 import { mapActions, mapGetters } from "vuex";
 
@@ -55,6 +57,7 @@ export default {
   components: {
     CatalogItem,
     Select,
+    Notification,
   },
   computed: {
     ...mapGetters(["PRODUCTS", "CART"]),
@@ -69,7 +72,13 @@ export default {
   methods: {
     ...mapActions(["GET_PRODUCTS_FROM_API", "ADD_TO_CART"]),
     addToCart(data) {
-      this.ADD_TO_CART(data);
+      this.ADD_TO_CART(data).then(() => {
+        let timeStamp = Date.now().toLocaleString;
+        this.messages.unshift({
+          name: "Товар добавлен в корзину",
+          id: timeStamp,
+        });
+      });
     },
     sortByCategories(category) {
       this.sortedProducts = [...this.PRODUCTS];
@@ -110,6 +119,7 @@ export default {
       sortedProducts: [],
       minPrice: 0,
       maxPrice: 9000,
+      messages: [],
     };
   },
 };
